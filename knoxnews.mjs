@@ -12,7 +12,7 @@ const RecaptchaOptions = {
 
 chromium.use(RecaptchaPlugin(RecaptchaOptions))
 
-chromium.launch({ headless: false }).then(async (browser) => {
+chromium.launch({ headless: true }).then(async (browser) => {
   const page = await browser.newPage()
   await page.goto(`https://${process.env.NEWSMEMORY_SUBDOMAIN}.newsmemory.com/`, { waitUntil: 'networkidle'})
   await page.getByRole('textbox', { name: 'Account Username' }).click()
